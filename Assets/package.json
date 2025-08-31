@@ -1,0 +1,7 @@
+{
+    "description": "Singleton template for Object and Unity MonoBehavior.",
+    "displayName": "Singleton",
+    "name": "com.mgs.singleton",
+    "unity": "2021.3",
+    "version": "1.0.0"
+}
