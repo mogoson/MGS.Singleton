@@ -24,9 +24,10 @@ namespace MGS.Singleton
     public abstract class SingleBehaviour<T> : MonoBehaviour where T : Component
     {
         /// <summary>
-        /// Single instance of the specified component T (Lazy).
+        /// Single instance of the specified component T (Lazy and thread safety).
+        /// Require the first access is from the main thread.
         /// </summary>
-        public static T Instance { get { return Agent.instance; } }
+        public static T Instance { get { return Agent.Instance; } }
 
         /// <summary>
         /// Agent provide the single instance.
@@ -34,15 +35,19 @@ namespace MGS.Singleton
         private class Agent
         {
             /// <summary>
-            /// Single instance of the specified component T (Thread safety).
+            /// Single instance of the specified type T (Thread safety).
+            /// Require the first access is from the main thread.
             /// </summary>
-            internal static readonly T instance = new GameObject(typeof(T).Name).AddComponent<T>();
+            internal static T Instance { get; }
 
             /// <summary>
-            /// Explicit static constructor to tell C# compiler not to mark type as BeforeFieldInit (Lazy).
-            /// https://github.com/mogoson/MGS.Tests/blob/main/Assets/Tests/TypeAttributes/BeforeFieldInitTest.cs
+            /// Explicit static constructor to create single instance of the specified type T (Thread safety).
             /// </summary>
-            static Agent() { DontDestroyOnLoad(instance); }
+            static Agent()
+            {
+                Instance = new GameObject(nameof(T)).AddComponent<T>();
+                DontDestroyOnLoad(Instance);
+            }
         }
     }
 }
