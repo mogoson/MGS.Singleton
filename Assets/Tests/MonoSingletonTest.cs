@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  SingleBehaviourTest.cs
+ *  File         :  MonoSingletonTest.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -14,14 +14,14 @@ using MGS.Singleton;
 using NUnit.Framework;
 using UnityEngine;
 
-public class SingleBehaviourTest
+public class MonoSingletonTest
 {
-    sealed class TestSingleBehaviour : SingleBehaviour<TestSingleBehaviour> { }
+    sealed class TestMonoSingleton : MonoSingleton<TestMonoSingleton> { }
 
     [Test]
     public void SingleInstanceTest()
     {
-        var instance = TestSingleBehaviour.Instance;
+        var instance = TestMonoSingleton.Instance;
         Assert.NotNull(instance);
         Debug.Log($"Instance is {instance}");
     }

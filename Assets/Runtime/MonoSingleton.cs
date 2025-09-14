@@ -1,8 +1,8 @@
 ﻿/*************************************************************************
  *  Copyright © 2021 Mogoson. All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  SingleBehaviour.cs
- *  Description  :  Define single behaviour.
+ *  File         :  MonoSingleton.cs
+ *  Description  :  Define mono singleton.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
  *  Version      :  1.0
@@ -21,7 +21,7 @@ namespace MGS.Singleton
     /// </summary>
     /// <typeparam name="T">Specified type.</typeparam>
     [DisallowMultipleComponent]
-    public abstract class SingleBehaviour<T> : MonoBehaviour where T : Component
+    public abstract class MonoSingleton<T> : MonoBehaviour where T : Component
     {
         /// <summary>
         /// Single instance of the specified component T (Lazy and thread safety).
