@@ -18,6 +18,7 @@ namespace MGS.Singleton
     /// Provide a auto create, lazy and thread safety single instance of the specified component T;
     /// Specified component T should with the sealed access modifier to ensure singleton.
     /// Do not add the component T to any gameobject by yourself.
+    /// Require the first access is from the main thread.
     /// </summary>
     /// <typeparam name="T">Specified type.</typeparam>
     [DisallowMultipleComponent]

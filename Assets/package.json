@@ -1,7 +1,16 @@
 {
-    "description": "Singleton template for Object and Unity MonoBehavior.",
-    "displayName": "Singleton",
     "name": "com.mgs.singleton",
+    "version": "1.0.0",
+    "displayName": "Singleton",
+    "description": "Singleton template for Object and Unity MonoBehavior.",
     "unity": "2021.3",
-    "version": "1.0.0"
+    "keywords": [
+        "singleton",
+        "MonoBehavior"
+    ],
+    "author": {
+        "name": "Mogoson",
+        "email": "mogoson@outlook.com",
+        "url": "https://github.com/mogoson"
+    }
 }
