@@ -35,6 +35,8 @@ namespace MGS.Singleton.Tests
             var instance = MainThreadAgent.Instance;
             void WorkOnMainThread()
             {
+                var go = new GameObject();
+                Assert.NotNull(go);
                 Debug.Log("WorkOnMainThread");
             }
             void WorkOnBgThread()
