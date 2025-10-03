@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  MonoSingletonTest.cs
+ *  File         :  MonoSingletonTests.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -10,19 +10,21 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-using MGS.Singleton;
 using NUnit.Framework;
 using UnityEngine;
 
-public class MonoSingletonTest
+namespace MGS.Singleton.Tests
 {
-    sealed class TestMonoSingleton : MonoSingleton<TestMonoSingleton> { }
-
-    [Test]
-    public void SingleInstanceTest()
+    public class MonoSingletonTests
     {
-        var instance = TestMonoSingleton.Instance;
-        Assert.NotNull(instance);
-        Debug.Log($"Instance is {instance}");
+        sealed class TestMonoSingleton : MonoSingleton<TestMonoSingleton> { }
+
+        [Test]
+        public void SingleInstanceTest()
+        {
+            var instance = TestMonoSingleton.Instance;
+            Assert.NotNull(instance);
+            Debug.Log($"Instance is {instance}");
+        }
     }
 }
